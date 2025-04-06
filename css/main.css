@@ -1,0 +1,535 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+    color: #333;
+    text-align: center;
+}
+
+/*--START--Header + Navbar*/
+header {
+    background: #222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar {
+    background: #222;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #888;
+}
+/*--END--Header + Navbar*/
+
+
+/*--START--Swiper.js*/
+.slider-container {
+    margin: 30px auto;
+    width: 80%;
+    max-width: 800px;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+    margin-top: 10px;
+}
+
+.swiper-slide strong {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    color: black
+}
+
+.gallery-title {
+    text-align: center;
+    font-size: 2.5em;
+    color: #222;
+    margin-bottom: 30px;
+    padding-top: 50px;
+}
+/*--END--Swiper.js*/
+
+
+/*--START--About Section*/
+.about {
+    background-color: darkgray;
+    padding: 40px;
+}
+
+.about h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.about p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+/*--END--About Section*/
+
+
+/*--START--CTA Button*/
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #222;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.cta-button:hover {
+    background: #555;
+}
+/*--END--CTA Button*/
+
+
+/*--START--Footer Section*/
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: auto;
+}
+/*--END--Footer Section*/
+
+
+/*--START--Modal Button1 (icon) & Modal Button (exchanges)*/
+.floating-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #222;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.floating-btn:hover {
+    background-color: #555;
+    transform: scale(1.1);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #f5f5f5;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    text-align: left;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(0.7);
+    transition: transform 0.3s ease;
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+}
+
+/* Formulaire d'échange */
+.exchange-form {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #222;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #222;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: white;
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: #555;
+}
+
+/* Titre de la modal */
+.modal-title {
+    font-size: 24px;
+    color: #222;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Bouton de fermeture */
+.close-btn {
+    background-color: #222;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    font-size: 16px;
+}
+
+.close-btn:hover {
+    background-color: #555;
+}
+/*--END--Modal Button1 (icon) & Modal Button (exchanges)*/
+
+
+/*--START--Connexion Form*/
+.login-form {
+    margin-top: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #222;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: white;
+    margin-bottom: 15px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #555;
+}
+
+/* Ajustement pour les boutons du formulaire */
+.login-form .cta-button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.profile-info {
+    margin-bottom: 20px;
+}
+
+.info-group {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.info-group label {
+    font-weight: bold;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.info-group p {
+    margin: 0;
+    color: #333;
+    font-size: 16px;
+}
+
+#profileCards {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#profileCards li {
+    padding: 8px;
+    margin: 5px 0;
+    background-color: #363636;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+#logoutBtn {
+    width: 100%;
+    margin: 20px 0;
+}
+/*--END--Connexion Form*/
+
+
+
+/*--START--Title Animation*/
+.animated-title {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUpInBounce 1.2s cubic-bezier(0.36, 0, 0.66, 1.3) forwards;
+}
+
+@keyframes fadeUpInBounce {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    50% {
+        opacity: 0.8;
+    }
+    80% {
+        transform: translateY(-5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/*--END--Title Animation*/
+
+
+/*--START--Contact Form*/
+.contact-section {
+    padding: 60px 20px;
+    background-color: #f5f5f5;
+}
+
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-container h2 {
+    color: #222;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.contact-form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #222;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: white;
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+}
+
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #555;
+}
+
+.contact-form .cta-button {
+    width: 100%;
+    margin-top: 10px;
+}
+/*--END--Contact Form*/
+
+/*--START--DarkMode */
+.dark-mode-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.dark-mode-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode-btn .icon {
+    font-size: 16px;
+}
+
+.dark-mode-btn .text {
+    text-transform: capitalize;
+}
+
+/* Styles spécifiques pour le mode sombre */
+body.dark-mode .dark-mode-btn {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode {
+    background: #1a1a1a;
+    color: #ffffff;
+}
+
+body.dark-mode .navbar,
+body.dark-mode header,
+body.dark-mode footer {
+    background: #000000;
+}
+
+body.dark-mode .info-group p  {
+    color: #ffffff
+}
+
+body.dark-mode .about {
+    color: #ffffff;
+    background-color: #343434;
+}
+body.dark-mode .modal-content {
+    background-color: #2d2d2d;
+    color: #ffffff;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select,
+body.dark-mode .form-group textarea {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border-color: #444;
+}
+
+body.dark-mode .contact-form {
+    background-color: #2d2d2d;
+}
+
+body.dark-mode .swiper-slide strong {
+    color: #ffffff;
+}
+
+body.dark-mode .gallery-title {
+    color: #ffffff;
+}
+
+body.dark-mode .modal-title {
+    color: #ffffff;
+}
+
+body.dark-mode .cta-button {
+    background: #444;
+    color: #ffffff;
+}
+
+body.dark-mode .cta-button:hover {
+    background: #666;
+}
+
+body.dark-mode .contact-section {
+    background-color: #2d2d2d;
+}
+
+body.dark-mode .contact-container h2 {
+    color: #ffffff;
+}
+
+body.dark-mode .contact-form label {
+    color: #ffffff;
+}
+
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+    background-color: #333;
+    color: #ffffff;
+    border: 1px solid #444;
+}
+
+body.dark-mode .contact-form input:focus,
+body.dark-mode .contact-form textarea:focus {
+    border-color: #666;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .contact-form .cta-button {
+    background-color: #444;
+    color: #ffffff;
+}
+
+body.dark-mode .contact-form .cta-button:hover {
+    background-color: #555;
+}
+/*--END--DarkMode */

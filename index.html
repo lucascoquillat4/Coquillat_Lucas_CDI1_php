@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Venez redécouvrir les oeuvres d'Arts les plus célèbres en format numérique, sans rien payer! "><!--meta description -->
+    <title>Timeless Gallery</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"> <!--swiper.js -->
+</head>
+
+<body>
+<!-- Début Header -->
+    <header>
+        <h1 class="animated-title">Timeless Gallery</h1>
+    </header>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#">Home</a>
+            <a href="#gallery">Gallerie</a>
+            <a href="#contact">Contacte</a>
+            <a href="#" id="accountBtn">Compte</a>
+            <button id="darkModeToggle" class="dark-mode-btn">
+                <span class="icon">☀️</span>
+                <span class="text">clair</span>
+            </button>
+        </div>
+    </nav>
+<!-- Fin Header -->
+
+
+<!-- Début About -->
+    <section class="about">
+        <h2>Découvrez l'Art Sans Limite !</h2>
+        <p>Timeless Gallery vous propose une sélection d'œuvres intemporelles, allant de la peinture classique à l'art contemporain.</p>
+        <a href="#gallery" class="cta-button">Explorer la Galerie</a>
+    </section>
+<!-- Fin About -->
+
+
+<!-- Swiper début (Gallery)-->
+<section class="slider-container" id="gallery">
+    <h2 class="gallery-title">Gallerie</h2>
+    <div class="swiper mySwiper" style="height: 500px;">
+        <div class="swiper-wrapper" id="artworkContainer">
+            <!-- Les images seront chargées dynamiquement ici -->
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</section>
+<!-- Fin Swiper (Gallery)-->
+
+
+<!-- Bouton flottant (icone "+") -->
+<button class="floating-btn" id="openModalBtn">+</button>
+
+
+<!-- Début Modal (exchanges) -->
+<div class="modal" id="exchangeModal">
+    <div class="modal-content">
+        <h3 class="modal-title">Échange de Cartes</h3>
+        <form class="exchange-form">
+            <div class="form-group">
+                <label for="personSelect">Choisir une personne :</label>
+                <select id="personSelect" required>
+                    <option value="">Sélectionnez une personne</option>
+                    <option value="person1">Anthony</option>
+                    <option value="person2">Léo</option>
+                    <option value="person3">Enzo</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cardSelect">Choisir une carte à échanger :</label>
+                <select id="cardSelect" required>
+                    <option value="">Sélectionnez une carte</option>
+                    <option value="card1">La Grande Vague de Kanagawa</option>
+                    <option value="card2">La Nuit étoilée</option>
+                    <option value="card3">Le Cri</option>
+                </select>
+            </div>
+            <button type="submit" class="cta-button">Proposer l'échange</button>
+        </form>
+        <button class="close-btn" id="closeModalBtn">Fermer</button>
+    </div>
+</div>
+<!-- Fin de la modal (exchanges) -->
+
+
+<!-- Début Modal de connexion -->
+<!-- Remplacer la section Modal de connexion existante par : -->
+
+<!-- Début Modal de connexion -->
+<div class="modal" id="loginModal">
+    <div class="modal-content">
+        <h3 class="modal-title">Connexion</h3>
+        <form class="login-form" id="loginForm">
+            <div class="form-group">
+                <label for="email">Adresse email :</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="pseudo">Pseudo :</label>
+                <input type="text" id="pseudo" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit" class="cta-button">Se connecter</button>
+        </form>
+        <button class="close-btn" id="closeLoginBtn">Fermer</button>
+    </div>
+</div>
+<!-- Fin Modal de connexion -->
+
+
+<!-- Début Profile Section -->
+<div class="modal" id="profileModal">
+    <div class="modal-content">
+        <h3 class="modal-title">Mon Profil</h3>
+        <div class="profile-info">
+            <div class="info-group">
+                <label>Email:</label>
+                <p id="profileEmail"></p>
+            </div>
+            <div class="info-group">
+                <label>Pseudo:</label>
+                <p id="profilePseudo"></p>
+            </div>
+            <div class="info-group">
+                <label>Mes cartes:</label>
+                <ul id="profileCards">
+                    <li>1.La Grande Vague de Kanagawa</li>
+                    <li>2.La Nuit étoilée</li>
+                    <li>4.Le Cri</li>
+                </ul>
+            </div>
+        </div>
+        <button class="cta-button" id="logoutBtn">Se déconnecter</button>
+        <button class="close-btn" id="closeProfileBtn">Fermer</button>
+    </div>
+</div>
+<!-- Fin Profile Section -->
+
+
+<!-- Début Contact Form -->
+<section class="contact-section" id="contact">
+    <div class="contact-container">
+        <h2>Contactez-nous</h2>
+        <form class="contact-form" id="contactForm">
+            <div class="form-group">
+                <label for="contactPseudo">Pseudo :</label>
+                <input type="text" id="contactPseudo" required>
+            </div>
+            <div class="form-group">
+                <label for="contactObject">Objet :</label>
+                <input type="text" id="contactObject" required>
+            </div>
+            <div class="form-group">
+                <label for="contactMessage">Message :</label>
+                <textarea id="contactMessage" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="cta-button">Envoyer</button>
+        </form>
+    </div>
+</section>
+<!-- Fin Contact Form -->
+
+
+<!-- Début Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 - Tous droits réservés | Lucas Coquillat</p>
+        </div>
+    </footer>
+<!-- Fin Footer -->
+
+
+<!-- Début Script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+<!-- Fin Script -->
+
+
+</body>
+</html>
